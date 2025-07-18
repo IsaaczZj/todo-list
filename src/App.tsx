@@ -8,6 +8,10 @@ import XIcon from "./assets/icons/x.svg?react";
 import { Icon } from "./components/icon";
 import { Badge } from "./components/badge";
 import { Button } from "./components/button";
+import { ButtonIcon } from "./components/button-icon";
+import { Input } from "./components/input";
+import { CheckBox } from "./components/checkbox";
+import { Card } from "./components/card";
 
 export function App() {
   return (
@@ -32,6 +36,27 @@ export function App() {
       </div>
       <div>
         <Button icon={PlusIcon}>Nova tarefa</Button>
+        <ButtonIcon icon={TrashIcon} variant="secondary">
+          Nova tarefa
+        </ButtonIcon>
+        <ButtonIcon icon={TrashIcon} variant="primary">
+          Nova tarefa
+        </ButtonIcon>
+        <ButtonIcon icon={TrashIcon} variant="tertiary">
+          Nova tarefa
+        </ButtonIcon>
+      </div>
+      <div>
+        <Input />
+        <CheckBox />
+      </div>
+      <div className="mt-10 p-10">
+        <Card>
+          <CheckBox />
+          <Input />
+          <ButtonIcon variant="tertiary" icon={TrashIcon} />
+          <ButtonIcon variant="tertiary" icon={PencilIcon} />
+        </Card>
       </div>
     </div>
   );
