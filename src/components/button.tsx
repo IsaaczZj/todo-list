@@ -31,7 +31,7 @@ export function Button({
       primary: "fill-pink-base",
     },
     size: {
-      md: "w-5 h-5 ",
+      md: "w-5 h-5",
     },
   };
 
@@ -53,7 +53,6 @@ export function Button({
           className={classMerge([
             buttonIconVariants.variants[variant],
             buttonIconVariants.size[size],
-            className,
           ])}
         />
       )}
