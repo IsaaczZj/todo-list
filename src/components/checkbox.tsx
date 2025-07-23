@@ -1,9 +1,16 @@
 import { cva } from "class-variance-authority";
 import { Icon } from "./icon";
 import CheckIcon from "../assets/icons/check.svg?react";
-interface CheckBox extends React.ComponentProps<"input"> {}
+import { Skeleton } from "./skeleton";
+interface CheckBox extends React.ComponentProps<"input"> {
+  loading?:boolean
+}
 
-export function CheckBox({ className, ...props }: CheckBox) {
+export function CheckBox({ className, loading,...props }: CheckBox) {
+
+  if(loading){
+    return <Skeleton rounded="sm" className="h-5 w-5"/>
+  }
   return (
     <label className="inline-flex items-center justify-center cursor-pointer relative group">
       <input

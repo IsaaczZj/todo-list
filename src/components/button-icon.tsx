@@ -1,9 +1,11 @@
 import { Icon } from "./icon";
 import { classMerge } from "../utils/classMerge";
+import { Skeleton } from "./skeleton";
 
 interface ButtonProps extends React.ComponentProps<"button"> {
   icon: React.FC<React.ComponentProps<"svg">>;
   variant?: "primary" | "secondary" | "tertiary";
+  loading?: boolean;
 }
 
 export function ButtonIcon({
@@ -11,6 +13,7 @@ export function ButtonIcon({
   variant = "primary",
   disabled,
   className,
+  loading,
   ...props
 }: ButtonProps) {
   const buttonIconVariants = {
@@ -27,6 +30,15 @@ export function ButtonIcon({
       tertiary: "fill-gray-300 group-hover:fill-gray-400",
     },
   };
+
+  if (loading) {
+    return (
+      <Skeleton
+        rounded="sm"
+        className="h-6 w-6 p-1 inline-flex items-center justify-center rounded transition group"
+      />
+    );
+  }
 
   return (
     <button
@@ -45,6 +57,6 @@ export function ButtonIcon({
           buttonIconIconVariants.variant[variant],
         ])}
       ></Icon>
-    </button> 
+    </button>
   );
 }
