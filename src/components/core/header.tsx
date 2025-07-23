@@ -1,5 +1,5 @@
 import { Container } from "../container";
-import Logo from "../assets/images/logo.svg?react";
+import Logo from "../../assets/images/logo.svg?react";
 export function Header() {
   return (
     <Container className="mt-3 md:mt-20">
