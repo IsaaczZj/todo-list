@@ -7,7 +7,6 @@ export function PageHome() {
   return (
     <Container className="space-y-3">
       <TasksSummary />
-
       <TasksList />
     </Container>
   );

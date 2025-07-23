@@ -1,8 +1,8 @@
 import { NavLink, Outlet } from "react-router";
-import { Container } from "../components/container";
-import { Text } from "../components/text";
-import { Header } from "../components/core/header";
-import { Footer } from "../components/core/footer";
+import { Container } from "../container";
+import { Text } from "../text";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export function LayoutMain() {
   return (

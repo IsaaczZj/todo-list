@@ -11,7 +11,7 @@ import XIcon from "../../assets/icons/x.svg?react";
 import { useState } from "react";
 import { Input } from "../input";
 export function TaskItem() {
-  const [isEditing, setIsEditing] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleExitEditTask() {
     setIsEditing(false);
@@ -29,7 +29,7 @@ export function TaskItem() {
             <ButtonIcon
               variant="tertiary"
               icon={PencilIcon}
-              onClick={() => setIsEditing(!isEditing)}
+              onClick={() => setIsEditing(true)}
             />
           </div>
         </>
