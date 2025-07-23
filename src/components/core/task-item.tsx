@@ -7,16 +7,14 @@ import PencilIcon from "../../assets/icons/pencil.svg?react";
 
 import CheckIcon from "../../assets/icons/check.svg?react";
 
-import PlusIcon from "../../assets/icons/plus.svg?react";
-import SpinnerIcon from "../../assets/icons/spinner.svg?react";
 import XIcon from "../../assets/icons/x.svg?react";
 import { useState } from "react";
 import { Input } from "../input";
 export function TaskItem() {
   const [isEditing, setIsEditing] = useState(true);
 
-  function handleExitEditTask(){
-    setIsEditing(false)
+  function handleExitEditTask() {
+    setIsEditing(false);
   }
 
   return (
