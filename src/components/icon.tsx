@@ -1,31 +1,32 @@
 import type React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { classMerge } from "../utils/classMerge";
 
-export const iconVariants = cva("", {
-  variants: {
-    animate: {
-      false: "",
-      true: "animate-spin",
-    },
-    defaultVariants: {
-      animate: false,
-    },
-  },
-});
-
-interface IconProps
-  extends React.ComponentProps<"svg">,
-    VariantProps<typeof iconVariants> {
+interface IconProps extends React.ComponentProps<"svg"> {
+  animate?: boolean;
   svg: React.FC<React.ComponentProps<"svg">>;
 }
 
 export function Icon({
   svg: SvgComponent,
-  animate,
+  animate = false,
   className,
   ...props
 }: IconProps) {
+  const iconVariants = {
+    variant: {
+      animate: {
+        false: "",
+        true: "animate-spin",
+      },
+    },
+  };
   return (
-    <SvgComponent {...props} className={iconVariants({ animate, className })} />
+    <SvgComponent
+      {...props}
+      className={classMerge([
+        iconVariants.variant.animate[animate ? "true" : "false"],
+        className,
+      ])}
+    />
   );
 }
