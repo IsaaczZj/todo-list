@@ -1,37 +1,38 @@
+import { classMerge } from "../utils/classMerge";
 import { Text } from "./text";
-import { cva, type VariantProps } from "class-variance-authority";
 
-export const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-full",
-  {
-    variants: {
-      variant: {
-        primary: "bg-green-light text-green-dark",
-        secondary: "bg-pink-light text-pink-dark",
-      },
-      size: {
-        sm: "py-0.5 px-2",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "sm",
-    },
-  }
-);
 
-interface BadgeProps
-  extends React.ComponentProps<"div">,
-    VariantProps<typeof badgeVariants> {}
+interface BadgeProps extends React.ComponentProps<"div"> {
+  variant?: "primary" | "secondary";
+  size?: "sm";
+}
 export function Badge({
-  variant,
-  size,
+  variant = "primary",
+  size = "sm",
   className,
   children,
   ...props
 }: BadgeProps) {
+  const badgeVariants = {
+    variant: {
+      primary: "bg-green-light text-green-dark",
+      secondary: "bg-pink-light text-pink-dark",
+    },
+    size: {
+      sm: "py-0.5 px-2",
+    },
+  };
+
   return (
-    <div className={badgeVariants({ variant, size, className })} {...props}>
+    <div
+      className={classMerge([
+        "inline-flex items-center justify-center rounded-full",
+        badgeVariants.variant[variant],
+        badgeVariants.size[size],
+        className,
+      ])}
+      {...props}
+    >
       <Text variant="body-sm-bold">{children}</Text>
     </div>
   );

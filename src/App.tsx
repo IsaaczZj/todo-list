@@ -15,7 +15,7 @@ import { Card } from "./components/card";
 
 export function App() {
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-10">
       <div className="flex flex-col gap-2">
         <Text variant="body-sm-bold">Class</Text>
         <Text>Class</Text>
@@ -23,8 +23,8 @@ export function App() {
       </div>
       <div className="flex gap-1">
         <Text as="h1">Ícones</Text>
-        <Icon svg={TrashIcon} className="fill-green-base" />
-        <Icon svg={CheckIcon} className="fill-green-base" />
+        <Icon svg={TrashIcon} className="fill-pink-base" />
+        <Icon svg={CheckIcon} className="fill-pink-dark" />
         <Icon svg={PencilIcon} className="fill-green-base" />
         <Icon svg={PlusIcon} className="fill-green-base" />
         <Icon svg={SpinnerIcon} animate className="fill-green-base" />
@@ -50,7 +50,7 @@ export function App() {
         <Input />
         <CheckBox />
       </div>
-      <div className="mt-10 p-10">
+      <div>
         <Card>
           <CheckBox />
           <Input />

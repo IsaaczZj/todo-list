@@ -1,37 +1,45 @@
 import React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { classMerge } from "../utils/classMerge";
 
-export const textVariants = cva("font-sans text-gray-400", {
-  variants: {
-    variant: {
-      "body-sm-bold": "text-sm leading-5 font-semibold",
-      "body-md": "text-base leading-6 font-normal",
-      "body-md-bold": "text-base leading-6 font-semibold",
-    },
-  },
-  defaultVariants: {
-    variant: "body-md",
-  },
-});
+// export const textVariants = cva("font-sans text-gray-400", {
+//   variants: {
+//     variant: {
+//       "body-sm-bold": "text-sm leading-5 font-semibold",
+//       "body-md": "text-base leading-6 font-normal",
+//       "body-md-bold": "text-base leading-6 font-semibold",
+//     },
+//   },
+//   defaultVariants: {
+//     variant: "body-md",
+//   },
+// });
 
-interface TextProps extends VariantProps<typeof textVariants> {
+interface TextProps {
   as?: keyof React.JSX.IntrinsicElements;
   className?: string;
   children?: React.ReactNode;
-  
+  variant?: "body-sm-bold" | "body-md" | "body-md-bold";
 }
 
 export function Text({
   as = "span",
-  variant,
+  variant = "body-md",
   className,
   children,
   ...props
 }: TextProps) {
+  const textVariants = {
+    variants: {
+      "body-sm-bold": "text-sm leading-5 font-semibold",
+      "body-md": "text-base leading-6 font-normal",
+      "body-md-bold": "text-base leading-6 font-semibold",
+    },
+  };
+
   return React.createElement(
     as,
     {
-      className: textVariants({variant, className}),
+      className: classMerge([textVariants.variants[variant], className]),
       ...props,
     },
     children

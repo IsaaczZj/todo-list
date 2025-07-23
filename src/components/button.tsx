@@ -1,69 +1,60 @@
-import { cva, type VariantProps } from "class-variance-authority";
 import { Icon } from "./icon";
 import { Text } from "./text";
+import { classMerge } from "../utils/classMerge";
 
-export const buttonVariants = cva(
-  "flex items-center justify-center cursor-pointer transition rounded-lg group gap-2 ",
-  {
-    variants: {
-      variant: {
-        primary: "bg-gray-200 hover:bg-pink-light",
-      },
-      size: {
-        md: "h-14 py-4 px-5 ",
-      },
-      disabled: {
-        true: "opacity-50 pointer-events-none",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
-      disabled: false,
-    },
-  }
-);
-
-export const buttonIconVariants = cva("transition", {
-  variants: {
-    variant: {
-      primary: "fill-pink-base",
-    },
-    size: {
-      md: "w-5 h-5 ",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
-  },
-});
-
-interface ButtonProps
-  extends Omit<React.ComponentProps<"button">, "size" | "disabled">,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends React.ComponentProps<"button"> {
+  variant?: "primary";
+  size?: "md";
   icon?: React.FC<React.ComponentProps<"svg">>;
 }
 
 export function Button({
-  variant,
-  size,
+  variant = "primary",
+  size = "md",
   disabled,
   children,
   className,
   icon: IconComponent,
   ...props
 }: ButtonProps) {
+  const buttonVariants = {
+    variants: {
+      primary: "bg-gray-200 hover:bg-pink-light",
+    },
+    size: {
+      md: "h-14 py-4 px-5 ",
+    },
+  };
+
+  const buttonIconVariants = {
+    variants: {
+      primary: "fill-pink-base",
+    },
+    size: {
+      md: "w-5 h-5 ",
+    },
+  };
+
   return (
     <button
-      className={buttonVariants({ variant, disabled, size, className })}
+      className={classMerge([
+        "flex items-center justify-center cursor-pointer transition rounded-lg group gap-2 ",
+        buttonVariants.variants[variant],
+        buttonVariants.size[size],
+        disabled && "opacity-50 pointer-events-none",
+        className,
+      ])}
       {...props}
-      disabled
+      disabled={disabled}
     >
       {IconComponent && (
         <Icon
           svg={IconComponent}
-          className={buttonIconVariants({ variant, size })}
+          className={classMerge([
+            buttonIconVariants.variants[variant],
+            buttonIconVariants.size[size],
+            className,
+          ])}
         />
       )}
       <Text variant="body-md-bold" className="text-gray-400">
