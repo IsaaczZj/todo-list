@@ -28,8 +28,14 @@ export function useTask() {
 
   function updateStatusTask(id: string) {
     setTask(
-      task.map((task) => (task.id === id ? { ...task, concluded: !task.concluded } : task))
+      task.map((task) =>
+        task.id === id ? { ...task, concluded: !task.concluded } : task
+      )
     );
+  }
+
+  function deleteTask(id: string) {
+    setTask(task.filter((task) => task.id !== id));
   }
 
   return {
@@ -37,6 +43,7 @@ export function useTask() {
     prepareTask,
     deleteAllTask,
     updateTask,
-    updateStatusTask
+    updateStatusTask,
+    deleteTask,
   };
 }

@@ -19,7 +19,7 @@ interface PropsTaskItem {
 export function TaskItem({ task }: PropsTaskItem) {
   const [isEditing, setIsEditing] = useState(task?.state === "creating");
   const [taskTitle, setTaskTitle] = useState(task?.title || "");
-  const { updateTask, updateStatusTask } = useTask();
+  const { updateTask, updateStatusTask, deleteTask } = useTask();
   console.log(task.state);
 
   function handleExitEditTask() {
@@ -34,7 +34,6 @@ export function TaskItem({ task }: PropsTaskItem) {
     updateTask(task.id, taskTitle);
     setIsEditing(false);
   }
-  function handleCheckTask() {}
 
   return (
     <Card>
@@ -45,12 +44,20 @@ export function TaskItem({ task }: PropsTaskItem) {
             checked={task.concluded}
             onClick={() => updateStatusTask(task.id)}
           />
-          <Text className={`flex-1 ${task.concluded && "line-through text-gray-300"}`}>
+          <Text
+            className={`flex-1 ${
+              task.concluded && "line-through text-gray-300"
+            }`}
+          >
             {task?.title}
           </Text>
 
           <div className="flex items-center gap-1">
-            <ButtonIcon variant="tertiary" icon={TrashIcon} />
+            <ButtonIcon
+              variant="tertiary"
+              icon={TrashIcon}
+              onClick={() => deleteTask(task.id)}
+            />
             <ButtonIcon
               variant="tertiary"
               icon={PencilIcon}
