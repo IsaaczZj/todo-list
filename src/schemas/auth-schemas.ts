@@ -10,7 +10,7 @@ export const signInFormSchema = z.object({
 
 export type SignInFormSchema = z.infer<typeof signInFormSchema>;
 
-export const singUpFormSchema = z
+export const signUpFormSchema = z
   .object({
     username: z
       .string()
@@ -24,7 +24,7 @@ export const singUpFormSchema = z
       .min(6, "A senha deve ter pelo menos 6 caracteres"),
     confirmPassword: z
       .string()
-      .min(1, "Informe a senha")
+      .min(1, "Confirme sua senha")
       .min(6, "A senha deve ter pelo menos 6 caracteres"),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -32,4 +32,4 @@ export const singUpFormSchema = z
     path: ["confirmPassword"],
   });
 
-export type SignUpFormSchema = z.infer<typeof singUpFormSchema>;
+export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
