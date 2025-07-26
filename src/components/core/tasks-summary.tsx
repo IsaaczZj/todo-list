@@ -17,7 +17,7 @@ export function TasksSummary() {
         <Text variant="body-sm-bold" className="text-gray-300">
           Concluídas
         </Text>
-        <Badge variant="primary">{concludedtaskCount}</Badge>
+        <Badge variant="primary">{concludedtaskCount} de {taskCount}</Badge>
       </div>
     </section>
   );

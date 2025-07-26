@@ -9,23 +9,24 @@ import { TaskItem } from "./task-item";
 
 export function TasksList() {
   const { task, prepareTask } = useTask();
-  const { tasks } = useTasks();
+  const { tasks, isLoading } = useTasks();
   return (
     <>
       <section>
         <Button
           icon={PlusIcon}
           className="w-full"
-          disabled={tasks.some(
-            (task) => task.state === "creating" && !task.title
-          )}
+          disabled={
+            tasks.some((task) => task.state === "creating" && !task.title) ||
+            isLoading
+          }
           onClick={prepareTask}
         >
           Nova tarefa
         </Button>
       </section>
       <section className="space-y-2">
-        {tasks.length === 0 ? (
+        {tasks.length === 0 && !isLoading ? (
           <Text
             as="p"
             variant="body-md-bold"
@@ -34,8 +35,10 @@ export function TasksList() {
             Nenhuma tarefa criada...
           </Text>
         ) : (
+          !isLoading &&
           tasks.map((task) => <TaskItem key={task.id} task={task} />)
         )}
+        {isLoading && <TaskItem task={{} as Task} loading />}
       </section>
     </>
   );
