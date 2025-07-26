@@ -4,17 +4,17 @@ import PencilIcon from "../assets/icons/pencil.svg?react";
 import PlusIcon from "../assets/icons/plus.svg?react";
 import SpinnerIcon from "../assets/icons/spinner.svg?react";
 import XIcon from "../assets/icons/x.svg?react";
-import { Text } from "../components/text";
-import { Icon } from "../components/icon";
-import { Badge } from "../components/badge";
-import { Button } from "../components/button";
-import { ButtonIcon } from "../components/button-icon";
-import { Input } from "../components/input";
-import { CheckBox } from "../components/checkbox";
-import { Card } from "../components/card";
-import { Container } from "../components/container";
-import { Skeleton } from "../components/skeleton";
-export function PageComponents(){
+import { Text } from "../components/ui/text";
+import { Icon } from "../components/ui/icon";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { ButtonIcon } from "../components/ui/button-icon";
+import { Input } from "../components/ui/input";
+import { CheckBox } from "../components/ui/checkbox";
+import { Card } from "../components/ui/card";
+import { Container } from "../components/ui/container";
+import { Skeleton } from "../components/ui/skeleton";
+export function PageComponents() {
   return (
     <Container>
       <div className="grid gap-10">

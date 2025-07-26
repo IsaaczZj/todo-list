@@ -1,10 +1,14 @@
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 
 interface SkeletonProps extends React.ComponentProps<"div"> {
   rounded?: "sm" | "lg" | "full";
 }
 
-export function Skeleton({ rounded = "lg", className, ...props }: SkeletonProps) {
+export function Skeleton({
+  rounded = "lg",
+  className,
+  ...props
+}: SkeletonProps) {
   const skeletonVariants = {
     rounded: {
       sm: "rounded-sm",

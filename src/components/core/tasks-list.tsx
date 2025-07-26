@@ -2,9 +2,9 @@ import PlusIcon from "../../assets/icons/plus.svg?react";
 import { useTask } from "../../hooks/useTask";
 import { useTasks } from "../../hooks/useTasks";
 import type { Task } from "../../models/task";
-import { Button } from "../button";
-import { ButtonIcon } from "../button-icon";
-import { Text } from "../text";
+import { Button } from "../ui/button";
+import { ButtonIcon } from "../ui/button-icon";
+import { Text } from "../ui/text";
 import { TaskItem } from "./task-item";
 
 export function TasksList() {

@@ -1,4 +1,4 @@
-import { Container } from "../container";
+import { Container } from "../ui/container";
 import Logo from "../../assets/images/logo.svg?react";
 export function Header() {
   return (

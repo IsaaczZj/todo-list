@@ -1,5 +1,5 @@
 import { Icon } from "./icon";
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 import { Skeleton } from "./skeleton";
 
 interface ButtonProps extends React.ComponentProps<"button"> {

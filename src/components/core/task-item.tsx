@@ -1,7 +1,7 @@
-import { ButtonIcon } from "../button-icon";
-import { Card } from "../card";
-import { CheckBox } from "../checkbox";
-import { Text } from "../text";
+import { ButtonIcon } from "../ui/button-icon";
+import { Card } from "../ui/card";
+import { CheckBox } from "../ui/checkbox";
+import { Text } from "../ui/text";
 import TrashIcon from "../../assets/icons/trash.svg?react";
 import PencilIcon from "../../assets/icons/pencil.svg?react";
 
@@ -9,10 +9,10 @@ import CheckIcon from "../../assets/icons/check.svg?react";
 
 import XIcon from "../../assets/icons/x.svg?react";
 import { useState } from "react";
-import { Input } from "../input";
+import { Input } from "../ui/input";
 import type { Task } from "../../models/task";
 import { useTask } from "../../hooks/useTask";
-import { Skeleton } from "../skeleton";
+import { Skeleton } from "../ui/skeleton";
 
 interface PropsTaskItem {
   task: Task;

@@ -1,5 +1,5 @@
 import React from "react";
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 
 // export const textVariants = cva("font-sans text-gray-400", {
 //   variants: {

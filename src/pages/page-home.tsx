@@ -1,4 +1,4 @@
-import { Container } from "../components/container";
+import { Container } from "../components/ui/container";
 import { TaskItem } from "../components/core/task-item";
 import { TasksList } from "../components/core/tasks-list";
 import { TasksSummary } from "../components/core/tasks-summary";
