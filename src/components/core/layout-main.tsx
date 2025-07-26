@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router";
-import { Container } from "../container";
-import { Text } from "../text";
+import { Container } from "../ui/container";
+import { Text } from "../ui/text";
 import { Header } from "./header";
 import { Footer } from "./footer";
 

@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
+
 import { Icon } from "./icon";
-import CheckIcon from "../assets/icons/check.svg?react";
+import CheckIcon from "../../assets/icons/check.svg?react";
 import { Skeleton } from "./skeleton";
 interface CheckBox extends React.ComponentProps<"input"> {
   loading?:boolean

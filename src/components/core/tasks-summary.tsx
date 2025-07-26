@@ -1,7 +1,7 @@
 import { useTask } from "../../hooks/useTask";
 import { useTasks } from "../../hooks/useTasks";
-import { Badge } from "../badge";
-import { Text } from "../text";
+import { Badge } from "../ui/badge";
+import { Text } from "../ui/text";
 
 export function TasksSummary() {
   const { taskCount, concludedtaskCount } = useTasks();
@@ -17,7 +17,9 @@ export function TasksSummary() {
         <Text variant="body-sm-bold" className="text-gray-300">
           Concluídas
         </Text>
-        <Badge variant="primary">{concludedtaskCount} de {taskCount}</Badge>
+        <Badge variant="primary">
+          {concludedtaskCount} de {taskCount}
+        </Badge>
       </div>
     </section>
   );

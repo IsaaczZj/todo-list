@@ -1,5 +1,5 @@
 import type React from "react";
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 
 interface IconProps extends React.ComponentProps<"svg"> {
   animate?: boolean;

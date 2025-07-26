@@ -1,12 +1,11 @@
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 import { Skeleton } from "./skeleton";
 import { Text } from "./text";
-
 
 interface BadgeProps extends React.ComponentProps<"div"> {
   variant?: "primary" | "secondary";
   size?: "sm";
-  loading?:boolean
+  loading?: boolean;
 }
 export function Badge({
   variant = "primary",
@@ -25,12 +24,11 @@ export function Badge({
       sm: "py-0.5 px-2",
     },
   };
-  if(loading){
-    return <Skeleton rounded="full" className="w-6 h-6"/>
+  if (loading) {
+    return <Skeleton rounded="full" className="w-6 h-6" />;
   }
 
   return (
-    
     <div
       className={classMerge([
         "inline-flex items-center justify-center rounded-full",

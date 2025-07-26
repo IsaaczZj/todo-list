@@ -1,6 +1,6 @@
 import { Icon } from "./icon";
 import { Text } from "./text";
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 
 interface ButtonProps extends React.ComponentProps<"button"> {
   variant?: "primary";

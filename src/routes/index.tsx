@@ -5,7 +5,7 @@ import { AuthRoutes } from "./auth-routes";
 
 const session = {
   user: {
-    role: "user",
+    role: "",
   },
 };
 const isLoading = false;

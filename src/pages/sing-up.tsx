@@ -1,9 +1,9 @@
 import { Lock, LockKeyhole, Mail, User } from "lucide-react";
-import { Card } from "../components/card";
-import { Container } from "../components/container";
-import { Button } from "../components/button";
+import { Card } from "../components/ui/card";
+import { Container } from "../components/ui/container";
+import { Button } from "../components/ui/button";
 import { NavLink } from "react-router";
-import { Input } from "../components/input";
+import { Input } from "../components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {

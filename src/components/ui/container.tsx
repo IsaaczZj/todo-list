@@ -1,4 +1,4 @@
-import { classMerge } from "../utils/classMerge";
+import { classMerge } from "../../utils/classMerge";
 
 interface ContainerProps extends React.ComponentProps<"div"> {
   size?: "md";
